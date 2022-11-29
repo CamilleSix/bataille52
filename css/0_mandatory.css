@@ -1,0 +1,55 @@
+body{
+    background-color: whitesmoke;
+    padding: 5em ;
+    font-family: Tahoma, "sans-serif";
+    text-align: center;
+}
+main{
+    background-color: white;
+    max-width: 90%;
+    width: 30em ;
+    margin: 0 auto;
+    padding: 2em ;
+}
+
+footer{
+
+}
+input, button{
+    font-family: Tahoma, "sans-serif";
+}
+
+/*Style des formulaires*/
+.basicForm{
+    margin: 0;
+    text-align: left;
+}
+.basicForm input{
+    width: 100%;
+    display: block;
+    margin-top: 0.5em ;
+    padding: 0.5em 1em ;
+    border: 1px solid Gainsboro;
+}
+.basicForm .formValid{
+    display: block;
+    width: 10em ;
+    margin: 1em 0 0 auto;
+    border: none;
+    background-color: #318450;
+    color: white;
+    padding: 0.5em 1em ;
+    border-radius: 0.3em ;
+}
+
+/* Affichage des erreurs */
+.errorsParent{
+    margin-bottom: 2em ;
+}
+.errorsParent li{
+    list-style: none;
+    background-color: #9e2c2c;
+    color: white;
+    padding: 0.5em 1em ;
+    border-radius: 0.3em ;
+}

@@ -1,12 +1,13 @@
 <?php
 
-class Game{
+    class Game{
 
+        public $Player  ;
 
-    public function __construct(){
+        public function __construct($Player){
+            $this->Player = $Player ;
+        }
+
 
     }
-
-
-}
 
