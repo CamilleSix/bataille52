@@ -1,0 +1,28 @@
+.mainGame .part{
+    position: relative;
+    padding: 1em ;
+}
+
+.mainGame .part ul{
+position: absolute;
+    left: 0;
+}
+.mainGame .botPart ul{
+    top: 0;
+}
+
+.mainGame .playerPart ul{
+    bottom: 0;
+}
+
+.currentCard{
+    height: 10em;
+    width: 7em ;
+    background-image: url("../images/card-back.png");
+    background-size: cover;
+    background-position: center center;
+    border-radius: 0.5em ;
+    display: block;
+    margin: 0 auto ;
+    cursor: pointer;
+}

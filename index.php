@@ -12,13 +12,13 @@
 
     $Page->addCurrentGame($Game) ; // ajoute la session de jeu actuelle à l'objet de page
 
-    $Page->getActivePage() ; // Récupère la vue HTML actuelle en fonction de Game et de Player
     $Page->buildDefaultPageStructure() ; // crée les structures obligatoires à chaque pages (menu, head, footer)
+    $Page->getActivePage() ; // Récupère la vue HTML actuelle en fonction de Game et de Player
 
     $Page->loadTemplate() ; // charge le template HTML de la vue active et ses fichiers css/js
-    $Page->addCssFileToDocument() ;
+    $Page->addCssFileToDocument() ; $Page->addJsFileToDocument() ;
 
-    print_r($Page->saveHTML()) ;
+    print_r("<!doctype html>".$Page->saveHTML()) ;
 
 
     // Piste d'amélioration -> Un Form.class, passer en 7.2 pour ajouter une surcouche de type sur toutes les fonctions

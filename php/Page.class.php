@@ -5,6 +5,7 @@
         public $activePageName = "index" ;
         public $Game ;
         public $head ;
+        public $html ;
         public $body ;
         public $main ;
         public $footer;
@@ -24,12 +25,14 @@
 
         function buildDefaultPageStructure(){
             // crée la structure HTML de base obligatoire de toutes les pages
+            $this->html = $this->createElement("html");
+            $this->appendChild($this->html) ;
 
             $this->head = $this->createElement("head");
-            $this->appendChild($this->head) ;
+            $this->html->appendChild($this->head) ;
 
             $this->body = $this->createElement("body");
-            $this->appendChild($this->body) ;
+            $this->html->appendChild($this->body) ;
 
             $this->main = $this->createElement("main");
             $this->body->appendChild($this->main) ;
@@ -48,6 +51,14 @@
             if (empty($this->Game->Player->name)){
                 // si le nom du joueur n'est pas renseigné, la page à renvoyer est obligatoirement le formulaire demandant le prénom
                 $this->activePageName = "playerFormName" ;
+            } else {
+                $this->activePageName = "game" ;
+                $jsonGameData = $this->Game->gameDataToJson() ;
+
+                $divWithJson = $this->createElement("div");
+                $divWithJson->setAttribute('id', "gameJsonData") ;
+                $this->addTextToNode($divWithJson,$jsonGameData ) ;
+                $this->body->appendChild($divWithJson) ;
             }
 
             return $this->activePageName ;
@@ -60,19 +71,33 @@
 
             $this->main->appendChild($template); // insère la vue dans le <main> de l'objet de page
             $this->cssFiles[] = $this->activePageName ;
+            $this->jsFiles[] = $this->activePageName ;
         }
 
         function addCssFileToDocument(){
 
             foreach ($this->cssFiles AS $cssFile) {
+                if (file_exists("css/" . $cssFile . ".css")) {
+                    $cssLink = $this->createElement("link");
+                    $cssLink->setAttribute("href", "css/" . $cssFile . ".css");
+                    $cssLink->setAttribute("rel", "stylesheet");
 
-                $cssLink = $this->createElement("link");
-                $cssLink->setAttribute("href", "css/" . $cssFile . ".css");
-                $cssLink->setAttribute("rel", "stylesheet");
-
-                $this->head->appendChild($cssLink);
+                    $this->head->appendChild($cssLink);
+                }
             }
         }
+        function addJsFileToDocument(){
+
+            foreach ($this->jsFiles AS $jsFile) {
+                if (file_exists("js/" . $jsFile . ".js")) {
+                    $jsLink = $this->createElement("script");
+                    $jsLink->setAttribute("src", "js/" . $jsFile . ".js");
+
+                    $this->head->appendChild($jsLink);
+                }
+            }
+        }
+
         function displayError(){
 
             if (isset($_SESSION['Errors'])){
@@ -91,5 +116,7 @@
                 // remet à zéro la session avec les erreurs puisque qu'elles ont été affichées
             }
         }
+
+
     }
 

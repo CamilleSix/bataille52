@@ -18,6 +18,12 @@ footer{
 input, button{
     font-family: Tahoma, "sans-serif";
 }
+ul {
+    margin: 0; padding: 0;
+}
+li {
+    list-style: none;
+}
 
 /*Style des formulaires*/
 .basicForm{
@@ -46,8 +52,8 @@ input, button{
 .errorsParent{
     margin-bottom: 2em ;
 }
+
 .errorsParent li{
-    list-style: none;
     background-color: #9e2c2c;
     color: white;
     padding: 0.5em 1em ;
