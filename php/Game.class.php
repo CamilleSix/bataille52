@@ -44,7 +44,11 @@
         }
 
         public function gameDataToJson(){
-            return json_encode(["playerCards"=>$this->playerCards,"botCards"=>$this->botCards]) ;
+            return json_encode([
+                "playerCards"=>$this->playerCards,
+                "botCards"=>$this->botCards,
+                "playerName"=>$this->Player->name
+            ]) ;
         }
 
 

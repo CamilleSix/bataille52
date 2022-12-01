@@ -1,10 +1,17 @@
+.mainGame .disclamer{
+    padding-bottom: 1em;
+    border-bottom: 1px solid Gainsboro;
+    margin-bottom: 2em ;
+    text-align: left;
+}
+
 .mainGame .part{
     position: relative;
     padding: 1em ;
 }
 
 .mainGame .part ul{
-position: absolute;
+    position: absolute;
     left: 0;
 }
 .mainGame .botPart ul{
@@ -13,6 +20,74 @@ position: absolute;
 
 .mainGame .playerPart ul{
     bottom: 0;
+}
+
+.mainGame ul .points{
+    font-size: 0.9em ;
+    padding: 0.3em 1em ;
+    border-radius: 0.5em ;
+    display: inline-block;
+}
+.mainGame ul .winner{
+    background-color: #eed6a5;
+    color: #a87040;
+    padding-left: 2em;
+    text-align: left;
+    position: relative;
+    font-weight: 600;
+}
+.mainGame ul .winner :before{
+    background-image: url(../images/trophy.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 1em;
+    width: 1em ;
+    background-size: contain ;
+    content: '';
+    position: absolute;
+    left: 0.6em ;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.playerName, .botName{
+    font-weight: 600 ;
+    font-size: 1.2em ;
+}
+
+.mainGame .remainCardsNumber{
+    width: 30%;
+    text-align: right;
+    margin: 0.5em 0 0.5em auto;
+    font-size: 0.9em ;
+    border: 1px solid Gainsboro;
+    padding: 0.5em ;
+}
+.mainGame .remainCardsNumber span{
+    font-weight: bold;
+}
+.flipped .currentCard{
+    transform: scaleX(-1);
+    border: 1px solid Gainsboro;
+    overflow: hidden;
+}
+.flipped .currentCard span{
+    visibility: visible;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+    font-weight: bold;
+    color: dimgray;
+    transform: scaleX(-1);
+    font-size: 3em ;
+    opacity: 1;
+    padding-top: 1em ;
+}
+.currentCard span{
+    visibility: hidden;
+    opacity: 0;
 }
 
 .currentCard{
@@ -25,4 +100,9 @@ position: absolute;
     display: block;
     margin: 0 auto ;
     cursor: pointer;
+    transition: 1s all ease;
+}
+
+#gameJsonData{
+    display: none;
 }
