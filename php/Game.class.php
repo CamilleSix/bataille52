@@ -41,6 +41,7 @@ class Game{
         $this->botCards = array_slice($this->cards,$middle);
 
         $_SESSION['Game'] = (array) $this ;
+        // On envoie tout dans une session qui nous permet d'influer sur la vue
 
     }
 

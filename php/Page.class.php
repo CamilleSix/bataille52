@@ -74,13 +74,12 @@ class Page extends DOMDocument{
 
         $this->main->appendChild($template); // insère la vue dans le <main> de l'objet de page
 
-
         $this->cssFiles[] = $this->activePageName ;
         $this->jsFiles[] = $this->activePageName ;
     }
 
     function addJsonToTemplate(){
-
+// plusieurs pages ont besoin de recevoir des données formatées
         $jsonGameData = '' ;
 
         if ( $this->activePageName  == "results"){
@@ -97,7 +96,7 @@ class Page extends DOMDocument{
     }
 
     function addCssFileToDocument(){
-
+// traite l'ajout des fichiers CSS à la fin, en cas de traitement particulier cela permettrait d'ajouter une feuille de style facilement
         foreach ($this->cssFiles AS $cssFile) {
             if (file_exists("css/" . $cssFile . ".css")) {
                 $cssLink = $this->createElement("link");
@@ -109,20 +108,22 @@ class Page extends DOMDocument{
         }
     }
     function addJsFileToDocument(){
-
+//même principe que le CSS, pourquoi ne pas faire une seule fonction ? CSS > head , JS > fin du body
+// et puis si un jour je veux faire du traitement asynchrone pour les perfs ca sera plus simple
         foreach ($this->jsFiles AS $jsFile) {
             if (file_exists("js/" . $jsFile . ".js")) {
                 $jsLink = $this->createElement("script");
                 $jsLink->setAttribute("src", "js/" . $jsFile . ".js");
 
-                $this->head->appendChild($jsLink);
+                $this->body->appendChild($jsLink);
             }
         }
     }
 
     function displayError(){
-
+// affiche les erreurs ! Voilà, c'est pour ça, j'ai mis comme nom "displayError"
         if (isset($_SESSION['Errors'])){
+            // par principe [Errors] est un tableau, ca peut servir d'envoyer plusieurs erreurs différentes depuis un même formulaire
             $errors = $this->createElement("ul");
             $errors->setAttribute("class", "errorsParent");
             foreach ($_SESSION['Errors'] AS $errorMessage){

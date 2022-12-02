@@ -3,6 +3,7 @@
     class Player{
 
         public $name ;
+// Ca fait pas un objet très utile, je pensais avoir besoin de plus de choses !
 
         public function __construct(){
             if (!empty($_SESSION['Player'])){

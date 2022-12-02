@@ -73,6 +73,20 @@ html{
 .mainGame .remainCardsNumber span{
     font-weight: bold;
 }
+.currentCard{
+    height: 10em;
+    width: 7em ;
+    background-image: url("../images/card-back.png");
+    background-size: cover;
+    background-position: center center;
+    border-radius: 0.5em ;
+    display: block;
+    margin: 0 auto ;
+    cursor: pointer;
+    transition: 0.5s all ease;
+    border: 1px solid Gainsboro;
+}
+
 .flipped .currentCard{
     transform: scaleX(-1);
     overflow: hidden;
@@ -91,24 +105,11 @@ html{
     font-size: 3em ;
     opacity: 1;
     padding-top: 1em ;
+    /* Mon animation de "la carte qui tourne" est tout à fait low cost \o/~ */
 }
 .currentCard span{
     visibility: hidden;
     opacity: 0;
-}
-
-.currentCard{
-    height: 10em;
-    width: 7em ;
-    background-image: url("../images/card-back.png");
-    background-size: cover;
-    background-position: center center;
-    border-radius: 0.5em ;
-    display: block;
-    margin: 0 auto ;
-    cursor: pointer;
-    transition: 0.5s all ease;
-    border: 1px solid Gainsboro;
 }
 
 #finishedGame{
@@ -155,10 +156,5 @@ html{
     border-radius: 0.3em ;
 }
 
-button.results{
-    background-color: #324560;
-}
-
-button.newGame{
-    background-color: #388160;
-}
+button.results{background-color: #324560;}
+button.newGame{background-color: #388160;}

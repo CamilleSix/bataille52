@@ -1,18 +1,24 @@
 main {
     width: 45em;
+    /* mon tableau est long, du coup je réécris la taille du main */
 }
 
-.looseNumber{
-    color: #9e2c2c;
-}
-.winNumber{
-    color: #318450;
+.looseNumber{color: #9e2c2c;}
+.winNumber{color: #318450;}
+/* rouge c'est perdu, vert c'est gagné, oui */
+
+.overflowParent{
+    overflow: scroll;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 2em ;
+    padding: 0.5em 0;
+    white-space: nowrap;
 }
 #loadResult{
     font-size: 0.8em ;
     width: 100%;
     text-align: center;
-    margin-top: 2em ;
 }
 
 #loadResult td{
@@ -23,7 +29,6 @@ main {
     color: white;
     border-radius: 0.5em ;
 }
-
 
 form.basicForm{
     text-align: center;
@@ -39,6 +44,4 @@ form button.goTo{
 }
 
 
-button.newGame{
-    background-color: #388160;
-}
+button.newGame{background-color: #388160;}

@@ -9,8 +9,7 @@ require_once "php/Page.class.php" ;
 $Player = new Player ;
 $Game = new Game($Player) ;
 
-$Page = new Page('1.0', 'utf-8'); ;
-;
+$Page = new Page('1.0', 'utf-8');
 
 $Page->addCurrentGame($Game) ; // ajoute la session de jeu actuelle à l'objet de page
 
@@ -18,11 +17,11 @@ $Page->buildDefaultPageStructure() ; // crée les structures obligatoires à cha
 $Page->getActivePage() ; // Récupère la vue HTML actuelle en fonction de Game et de Player
 
 $Page->loadTemplate() ; // charge le template HTML de la vue active et ses fichiers css/js
-$Page->addJsonToTemplate() ;
+$Page->addJsonToTemplate() ; // s'il y en a, envoie les données JSON
+
 $Page->addCssFileToDocument() ; $Page->addJsFileToDocument() ;
 
-print_r("<!DOCTYPE html>".$Page->saveHTML()) ;
+echo "<!DOCTYPE html>".$Page->saveHTML() ; // sortie finale du DOM
 
 
-// Piste d'amélioration -> Un Form.class, passer en 7.2 pour ajouter une surcouche de type sur toutes les fonctions
-// Ajouter un bouton pour changer de prénom
+

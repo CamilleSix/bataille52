@@ -4,12 +4,20 @@ body{
     font-family: Tahoma, "sans-serif";
     text-align: center;
 }
+
+@media only screen and (max-width: 700px) {
+    /* On réduit simplement le padding sur petit écran pour éviter les débordements, le reste ne sort pas du cadre */
+    body {
+        padding: 5em 1em;
+    }
+}
 main{
     background-color: white;
-    max-width: 90%;
+    max-width: 95%;
     width: 35em ;
     margin: 0 auto;
     padding: 2em ;
+    box-sizing: border-box;
 }
 
 footer a{
@@ -18,6 +26,8 @@ footer a{
     text-decoration: none;
     display: block;
 }
+
+/* Réécriture de certains comportement du navigateur */
 input, button{
     font-family: Tahoma, "sans-serif";
     box-sizing: border-box;
@@ -26,16 +36,10 @@ input, button{
 button:hover, a:hover{
     opacity: 0.8;
 }
-ul {
-    margin: 0; padding: 0;
-}
-li {
-    list-style: none;
-}
 
-p{
-    margin: 0;
-}
+ul {margin: 0; padding: 0;}
+li {list-style: none;}
+p{margin: 0;}
 
 
 /*Style des formulaires*/
