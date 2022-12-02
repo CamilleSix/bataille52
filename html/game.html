@@ -8,7 +8,7 @@
 
         <div class="currentCard"><span class="number"></span></div>
     </article>
-<article class="remainCardsNumber">Nombre de batailles restantes : <span>26</span> </article>
+    <article class="remainCardsNumber">Nombre de batailles restantes : <span>26</span> </article>
     <article class="playerPart part">
         <ul>
             <li class="playerName"></li>
@@ -18,4 +18,15 @@
         <div class="currentCard"><span class="number"></span></div>
     </article>
 
+
 </section>
+
+<div id="finishedGame">
+    <form action="form/finishGame.php" method="POST" class="basicForm">
+        La partie est terminée !
+        <nav>
+            <button class="goTo results" name="goTo" value="results">Voir le résumé</button>
+            <button class="goTo newGame" name="goTo" value="newGame">Nouvelle partie</button>
+        </nav>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+main {
+    width: 45em;
+}
+
+.looseNumber{
+    color: #9e2c2c;
+}
+.winNumber{
+    color: #318450;
+}
+#loadResult{
+    font-size: 0.8em ;
+    width: 100%;
+    text-align: center;
+    margin-top: 2em ;
+}
+
+#loadResult td{
+    padding: 0.3em ;
+}
+#loadResult td.winCell{
+    background-color: #318450;
+    color: white;
+    border-radius: 0.5em ;
+}
+
+
+form.basicForm{
+    text-align: center;
+    margin-top: 2em ;
+}
+form button.goTo{
+    display: inline-block;
+    margin: 0.5em;
+    border: none;
+    color: white;
+    padding: 0.5em 1em ;
+    border-radius: 0.3em ;
+}
+
+
+button.newGame{
+    background-color: #388160;
+}

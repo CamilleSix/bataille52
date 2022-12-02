@@ -1,6 +1,8 @@
 window.addEventListener('load', function () {
 
     let gameJsonData = document.getElementById('gameJsonData').innerText;
+    gameJsonData = JSON.parse(gameJsonData) ;
+
     let triggerFlipAction = document.querySelectorAll('.currentCard') ;
 
     let playerParts = ["bot", "player"] ;
@@ -8,9 +10,8 @@ window.addEventListener('load', function () {
 
     let flipped = false ;
 
-    gameJsonData = JSON.parse(gameJsonData) ;
+    let finishedGame = document.getElementById("finishedGame") ;
 
-    console.log(gameJsonData) ;
     let currentPointer = 0 ;
 
     function setNumberToCard(partName){
@@ -19,25 +20,31 @@ window.addEventListener('load', function () {
     }
 
     function flipCard(){
-        if (currentPointer === 0){
-            // c'est le premier clic, on peut masquer la consigne
-            document.querySelector('.disclamer').style.display = "none" ;
-        }
-        flipped = true ;
-        for (let i = 0; i < playerParts.length; i++){
-            let domParent = document.querySelector("." + playerParts[i] + "Part") ;
-            setNumberToCard(playerParts[i]) ;
+        if (currentPointer < 26) { // sécurité pour éviter qu'un joueur ne masque le layout et cherche à cliquer la carte une fois de trop
+            if (currentPointer === 0) {
+                // c'est le premier clic, on peut masquer la consigne
+                document.querySelector('.disclamer').style.display = "none";
+            }
+            flipped = true;
+            for (let i = 0; i < playerParts.length; i++) {
+                let domParent = document.querySelector("." + playerParts[i] + "Part");
+                setNumberToCard(playerParts[i]);
 
-            domParent.classList.add('flipped') ;
-        }
-        if(gameJsonData["botCards"][currentPointer] > gameJsonData["playerCards"][currentPointer]  ){
-            setPoints(document.querySelector(".botPart .points span"),document.querySelector(".playerPart .points span")) ;
-        } else{
-            setPoints(document.querySelector(".playerPart .points span"), document.querySelector(".botPart .points span")) ;
-        }
+                domParent.classList.add('flipped');
+            }
+            if (gameJsonData["botCards"][currentPointer] > gameJsonData["playerCards"][currentPointer]) {
+                setPoints(document.querySelector(".botPart .points span"), document.querySelector(".playerPart .points span"));
+            } else {
+                setPoints(document.querySelector(".playerPart .points span"), document.querySelector(".botPart .points span"));
+            }
 
-        currentPointer++ ;
-        remainCardsNumber.innerText = parseInt(remainCardsNumber.innerText) - 1 ;
+            currentPointer++;
+            let remainNewNumber = parseInt(remainCardsNumber.innerText) - 1;
+            remainCardsNumber.innerText = remainNewNumber;
+            if (remainNewNumber === 0) {
+                finishedGame.style.display = "block";
+            }
+        }
     }
     function setPoints(winner,looser){
         let previous = parseInt(winner.innerText) ;

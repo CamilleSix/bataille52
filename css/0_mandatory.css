@@ -7,18 +7,24 @@ body{
 main{
     background-color: white;
     max-width: 90%;
-    width: 30em ;
+    width: 35em ;
     margin: 0 auto;
     padding: 2em ;
 }
 
-footer{
-padding: 1em ;
+footer a{
+    padding: 1em ;
     color: #454545;
+    text-decoration: none;
+    display: block;
 }
 input, button{
     font-family: Tahoma, "sans-serif";
     box-sizing: border-box;
+    cursor: pointer;
+}
+button:hover, a:hover{
+    opacity: 0.8;
 }
 ul {
     margin: 0; padding: 0;
@@ -65,4 +71,8 @@ p{
     color: white;
     padding: 0.5em 1em ;
     border-radius: 0.3em ;
+}
+
+#gameJsonData{
+    display: none;
 }

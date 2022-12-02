@@ -1,3 +1,11 @@
+html{
+    -webkit-user-select: none; /* Evite la selection du texte au clic sur les cartes */
+    -ms-user-select: none;
+    user-select: none;
+}
+.main{
+    position: relative;
+}
 .mainGame .disclamer{
     padding-bottom: 1em;
     border-bottom: 1px solid Gainsboro;
@@ -67,7 +75,6 @@
 }
 .flipped .currentCard{
     transform: scaleX(-1);
-    border: 1px solid Gainsboro;
     overflow: hidden;
 }
 .flipped .currentCard span{
@@ -100,9 +107,58 @@
     display: block;
     margin: 0 auto ;
     cursor: pointer;
-    transition: 1s all ease;
+    transition: 0.5s all ease;
+    border: 1px solid Gainsboro;
 }
 
-#gameJsonData{
+#finishedGame{
+    /* Le message de fin de partie*/
     display: none;
+}
+
+/*Message de fin de partie*/
+
+#finishedGame{
+    position: absolute;
+    background-color: rgba(255,255,255,0.8);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#finishedGame form{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    max-width: 90%;
+    max-height: 90%;
+    padding: 1em ;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    border: 1px solid Gainsboro;
+    font-size: 1.2em ;
+}
+
+
+#finishedGame form nav{
+    margin-top: 1em ;
+}
+
+#finishedGame form button.goTo{
+    display: inline-block;
+    margin: 0.5em;
+    border: none;
+    color: white;
+    padding: 0.5em 1em ;
+    border-radius: 0.3em ;
+}
+
+button.results{
+    background-color: #324560;
+}
+
+button.newGame{
+    background-color: #388160;
 }
